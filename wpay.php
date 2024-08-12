@@ -5,7 +5,10 @@ header('Access-Control-Allow-Headers: Content-Type');
 header('Content-Type: application/json');
 set_time_limit(0);
 
-is_dir('COOKIE') || mkdir('COOKIE', 0755, true);
+if (!is_dir('COOKIE')) {
+    mkdir('COOKIE', 0755, true);
+}
+
 
 $d = __DIR__ . '/COOKIE';
 
