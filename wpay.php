@@ -272,10 +272,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'proxy' => "geo.iproyal.com:12321",
         'credentials' => "FINDcb8PwwnCyoc1:7kHjD1nQgIJka8Da_country-us"
       ],
-      [
-        'proxy' => "premium-residential.geonode.com:$port9000_9010",
-        'credentials' => "geonode_nkDjCO20Qm:6d2fff58-e74c-4d59-8044-576d11cf1085"
-      ]
+
     ];
 
 
