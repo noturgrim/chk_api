@@ -13,6 +13,13 @@ error_reporting(E_ALL);
 ini_set('log_errors', 1);
 ini_set('error_log', __DIR__ . '/error_log.txt');
 
+// Test mode check
+if (isset($_GET['test']) && $_GET['test'] === 'true') {
+  echo json_encode(['status' => 'success', 'message' => 'Test mode active']);
+  exit;
+}
+
+
 function generateWebKitBoundary($length = 16)
 {
   $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
