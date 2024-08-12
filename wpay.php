@@ -5,6 +5,7 @@ header('Access-Control-Allow-Headers: Content-Type');
 header('Content-Type: application/json');
 set_time_limit(0);
 
+is_dir('COOKIE') || mkdir('COOKIE', 0755, true);
 ini_set('display_errors', 0);
 ini_set('display_startup_errors', 0);
 error_reporting(E_ALL);
@@ -111,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $cvv = $ccs[3];
 
     $ii = [
-      'cookie' => mt_rand() . '.txt'
+      'cookie' => 'COOKIE/' . mt_rand() . '.txt'
     ];
 
 
