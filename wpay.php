@@ -748,6 +748,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $processedCards[] = ['card' => $card, 'status' => 'declined', 'message' => "$msg"];
     }
 
+    $cookieFile = __DIR__ . '/COOKIE/' . $ii['cookie'];
+    if (file_exists($cookieFile)) {
+      unlink($cookieFile);
+    }
+
     curl_close($g);
   }
 
