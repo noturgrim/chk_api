@@ -200,14 +200,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $userAgent = $userAgents[array_rand($userAgents)];
     $referer = $referers[array_rand($referers)];
     $webkit = generateWebKitBoundary();
+    $port9000_9010 = rand(9000, 9010);
     $proxies = [
       [
         'proxy' => "geo.iproyal.com:12321",
         'credentials' => "FINDcb8PwwnCyoc1:7kHjD1nQgIJka8Da_country-us"
       ],
       [
-        'proxy' => "brd.superproxy.io:22225",
-        'credentials' => "brd-customer-hl_9658b3d0-zone-data_center-country-au-session-rand552371896:putanginamo123"
+        'proxy' => "premium-residential.geonode.com:$port9000_9010",
+        'credentials' => "geonode_nkDjCO20Qm:6d2fff58-e74c-4d59-8044-576d11cf1085"
       ]
     ];
 
