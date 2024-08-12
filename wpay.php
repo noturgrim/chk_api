@@ -5,10 +5,7 @@ header('Access-Control-Allow-Headers: Content-Type');
 header('Content-Type: application/json');
 set_time_limit(0);
 
-if (!is_dir('COOKIE')) {
-    mkdir('COOKIE', 0755, true);
-}
-
+is_dir('COOKIE') || mkdir('COOKIE', 0755, true);
 
 $d = __DIR__ . '/COOKIE';
 
@@ -694,7 +691,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     curl_setopt($g, CURLOPT_PROXYUSERPWD, "FINDcb8PwwnCyoc1:7kHjD1nQgIJka8Da_country-us");
     curl_setopt($g, CURLOPT_COOKIEJAR, $ii['cookie']);
     curl_setopt($g, CURLOPT_COOKIEFILE, $ii['cookie']);
-    curl_setopt($g, CURLOPT_URL, "https://cmafh.com/processorder.aspx?cid=$oidNumber");
+    curl_setopt($g, CURLOPT_URL, "https://cmafh.com/processorder.aspx?cid=$oidNumber&_=1723449095687");
     curl_setopt($g, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($g, CURLOPT_HTTPGET, 1);
     // curl_setopt($g, CURLOPT_HEADER, 1);
@@ -712,11 +709,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($g7 == "ERROR") {
       $g = curl_init();
-      //curl_setopt($g, CURLOPT_PROXY, "geo.iproyal.com:12321");
-      //curl_setopt($g, CURLOPT_PROXYUSERPWD, "FINDcb8PwwnCyoc1:7kHjD1nQgIJka8Da_country-us");
-      curl_setopt($g, CURLOPT_COOKIEJAR, "" . $d . "/COOKIE/" . $ii['cookie'] . "");
-      curl_setopt($g, CURLOPT_COOKIEFILE, "" . $d . "/COOKIE/" . $ii['cookie'] . "");
-      curl_setopt($g, CURLOPT_URL, "https://cmafh.com/getHovCart.aspx?0.23466169933764536");
+      curl_setopt($g, CURLOPT_PROXY, "geo.iproyal.com:12321");
+      curl_setopt($g, CURLOPT_PROXYUSERPWD, "FINDcb8PwwnCyoc1:7kHjD1nQgIJka8Da_country-us");
+      curl_setopt($g, CURLOPT_COOKIEJAR, $ii['cookie']);
+      curl_setopt($g, CURLOPT_COOKIEFILE, $ii['cookie']);
+      curl_setopt($g, CURLOPT_URL, "https://cmafh.com/getHovCart.aspx?0.6468183627487964");
       curl_setopt($g, CURLOPT_RETURNTRANSFER, 1);
       curl_setopt($g, CURLOPT_HTTPGET, 1);
       // curl_setopt($g, CURLOPT_HEADER, 1);
@@ -732,10 +729,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $errorGet1 = curl_exec($g);
 
       $g = curl_init();
-      //curl_setopt($g, CURLOPT_PROXY, "geo.iproyal.com:12321");
-      //curl_setopt($g, CURLOPT_PROXYUSERPWD, "FINDcb8PwwnCyoc1:7kHjD1nQgIJka8Da_country-us");
-      curl_setopt($g, CURLOPT_COOKIEJAR, "" . $d . "/COOKIE/" . $ii['cookie'] . "");
-      curl_setopt($g, CURLOPT_COOKIEFILE, "" . $d . "/COOKIE/" . $ii['cookie'] . "");
+      curl_setopt($g, CURLOPT_PROXY, "geo.iproyal.com:12321");
+      curl_setopt($g, CURLOPT_PROXYUSERPWD, "FINDcb8PwwnCyoc1:7kHjD1nQgIJka8Da_country-us");
+      curl_setopt($g, CURLOPT_COOKIEJAR, $ii['cookie']);
+      curl_setopt($g, CURLOPT_COOKIEFILE, $ii['cookie']);
       curl_setopt($g, CURLOPT_URL, "https://cmafh.com/checkout.aspx?error=y");
       curl_setopt($g, CURLOPT_RETURNTRANSFER, 1);
       curl_setopt($g, CURLOPT_HTTPGET, 1);
